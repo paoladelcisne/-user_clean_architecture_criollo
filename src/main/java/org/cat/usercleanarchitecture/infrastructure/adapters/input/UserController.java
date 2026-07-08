@@ -9,10 +9,9 @@ import org.cat.usercleanarchitecture.infrastructure.adapters.input.mapper.UserRe
 import org.cat.usercleanarchitecture.infrastructure.adapters.input.mapper.UserResponseMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/users")
@@ -32,5 +31,14 @@ public class UserController {
         return new ResponseEntity<>(UserResponseMapper.INSTANCE.toUserResponse(user),
                 HttpStatus.CREATED);
 
+    }
+
+    @GetMapping
+    public ResponseEntity<List<UserResponse>> filterByLastName(@RequestParam String lastName){
+        List<User> users = userUseCase.filterByLastName(lastName);//llamar al caso de uso
+        List<UserResponse> userResponses = users.stream()
+                .map(UserResponseMapper.INSTANCE::toUserResponse)
+                .toList();
+        return ResponseEntity.ok(userResponses);
     }
 }

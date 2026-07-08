@@ -1,6 +1,7 @@
 package org.cat.usercleanarchitecture.application.ports.usecase;
 
 import org.cat.usercleanarchitecture.application.ports.output.UserPort;
+import org.cat.usercleanarchitecture.application.usecase.UserUseCaseImpl;
 import org.cat.usercleanarchitecture.domain.model.User;
 import org.junit.jupiter.api.Test;
 

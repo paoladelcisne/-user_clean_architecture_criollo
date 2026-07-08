@@ -2,14 +2,14 @@ package org.cat.usercleanarchitecture.domain.model;
 
 public class User {
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String email;
     private String phone;
 
     //primero el constructor
-    public User(String firstName, String lastname, String email, String phone) {
+    public User(String firstName, String lastName, String email, String phone) {
         this.firstName = firstName;
-        this.lastname = lastname;
+        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
     }
@@ -18,7 +18,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
@@ -32,12 +32,12 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
